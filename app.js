@@ -10,8 +10,8 @@ var app= express();
 var port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
- //mongoose.connect("mongodb://iasadmin:souvik9038@ds111422.mlab.com:11422/ias")
- mongoose.connect("mongodb://localhost:27017/ias")
+ mongoose.connect("mongodb://iasadmin:souvik9038@ds111422.mlab.com:11422/ias")
+ //mongoose.connect("mongodb://localhost:27017/ias")
 .then(()=> {
   console.log("Connected to database");
 }).catch((e) => {
