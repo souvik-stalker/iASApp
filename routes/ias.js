@@ -15,7 +15,8 @@ const router = express.Router();
 
 
 router.get('',(req,res,next)=>{
-  UserAccess.find()
+	var email = req.query.email;
+  UserAccess.find({email:email})
   .populate('master_one_id')
   .populate('master_two_id')
   .populate('hierchey')
@@ -46,7 +47,10 @@ router.get('/reportList',(req,res,next)=>{
 	if(valueTwo){
 		queryStr+='-'+valueTwo;
 	}
+<<<<<<< HEAD
+=======
 	console.log(queryStr);
+>>>>>>> cf3b40ff9beb6043c8ec84d60feee9021d9a9c9a
 	PdfData.find({ report_type_id:report_id, "name": { $regex: '.*' + queryStr + '.*' } }).then((pdfs)=>{
 		res.status(200).json({
 		  pdfs:pdfs

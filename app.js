@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const iasRoutes = require('./routes/ias');
+const userRoutes = require('./routes/user');
 
 
 var app= express();
@@ -36,5 +37,6 @@ app.listen(port,()=>{
     console.log("Server is running on port ",port);
 });
 app.use("/api/ias",iasRoutes);
+app.use("/api/user",userRoutes);
 
 module.exports.app = app;
