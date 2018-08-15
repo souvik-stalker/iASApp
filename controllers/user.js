@@ -6,12 +6,12 @@ const User = require("../models/user");
 
 exports.loginUser = (req,res,next) => {
   let fetchedUser;
- bcrypt.hash(req.body.password,10)
+ /*bcrypt.hash(req.body.password,10)
   .then((hash)=> {
    return res.status(200).json({
         password:hash
       });
-  });
+  });*/
   User.findOne({email: req.body.email})
   .then((user) => {
 	  
