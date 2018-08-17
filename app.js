@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const iasRoutes = require('./routes/ias');
+const userRoutes = require('./routes/user');
 
 
 var app= express();
@@ -11,7 +12,7 @@ var port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
  mongoose.connect("mongodb://iasadmin:souvik9038@ds111422.mlab.com:11422/ias")
-//mongoose.connect("mongodb://localhost:27017/ias")
+ //mongoose.connect("mongodb://localhost:27017/ias")
 .then(()=> {
   console.log("Connected to database");
 }).catch((e) => {
@@ -36,5 +37,6 @@ app.listen(port,()=>{
     console.log("Server is running on port ",port);
 });
 app.use("/api/ias",iasRoutes);
+app.use("/api/user",userRoutes);
 
 module.exports.app = app;
