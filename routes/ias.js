@@ -68,12 +68,17 @@ router.get('/reportList',(req,res,next)=>{
     const level = req.query.level;
     const valueOne = req.query.valueOne;
 	const valueTwo = req.query.valueTwo;
+
+	const valueThree = req.query.valueThree;
 	var queryStr='';
 	if(valueOne){
 		queryStr = valueOne;
 	}
 	if(valueTwo){
 		queryStr+='-'+valueTwo;
+	}
+	if(valueThree){
+		queryStr+='-'+valueThree;
 	}
 	PdfData.find({ report_type_id:report_id, "name": { $regex: '.*' + queryStr + '.*' } }).then((pdfs)=>{
 		res.status(200).json({

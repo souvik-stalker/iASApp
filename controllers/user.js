@@ -6,7 +6,6 @@ const User = require("../models/user");
 
 exports.loginUser = (req,res,next) => {
   let fetchedUser;
- 
   User.findOne({email: req.body.email})
   .then((user) => {
 	  
